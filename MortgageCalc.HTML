@@ -1,0 +1,101 @@
+<<!DOCTYPE html>
+<html>
+<head>
+    <title>Dream2Reality Homes</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courgette&display=swap">
+    <link rel="stylesheet" href="./assets/styles.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+   
+    <style>
+      
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+       
+        section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Find Your Dream Home</h1>
+    </header>
+    <main>
+        <section class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img class="img-fluid" alt="Couple Standing in front of New Home"
+                        src="https://img-aws.ehowcdn.com/600x600p/photos.demandstudios.com/getty/article/163/10/80380241.jpg"/>
+                </div>
+                <div class="col-md-6">
+                    <h1>The Path to Home Ownership</h1>
+                    <p>Homeownership is a cherished dream for many individuals and families. It represents a place of security, where memories are made, and a sense of belonging is nurtured. With the ability to personalize spaces, create lasting traditions, and invest in a future, owning a home offers both stability and a canvas for personal expression. However, the journey towards homeownership often involves crucial financial decisions, such as understanding mortgage options, interest rates, and loan terms. A mortgage calculator serves as a valuable tool in this endeavor, providing insights into potential monthly payments and aiding in the informed decision-making process. As you embark on the path to homeownership, a mortgage calculator can be your trusted companion, guiding you towards achieving the dream of owning your own piece of the world.<p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="container">
+            <h1>Why Use Our Mortgage Calculator?</h1>
+            <p>Using our mortgage calculator can be the key to turning your dream of homeownership into a reality. The journey to purchasing your ideal home involves a multitude of financial considerations, and our mortgage calculator streamlines this process by providing invaluable insights. By simply inputting details such as the loan amount, interest rate, and loan term, you gain immediate access to accurate estimations of monthly payments. This allows you to plan your finances effectively and understand how different loan scenarios impact your budget. Whether you're a first-time homebuyer or a seasoned investor, our mortgage calculator empowers you with the knowledge needed to make informed decisions. Visualizing the financial commitments associated with your dream home not only grants you confidence in your choices but also ensures that you're well-prepared for the exciting journey ahead. Trust in our mortgage calculator to guide you towards securing the keys to the home you've always envisioned.</p>
+            <div class="greeting">Mortgage Calculator</div>
+            <form id="mortgageForm">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="loanAmount">Loan Amount:</label>
+                        <input type="number" id="loanAmount" placeholder="Loan Amount" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="interestRate">Interest Rate (%):</label>
+                        <input type="number" id="interestRate" placeholder="Interest Rate" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="loanTerm">Loan Term (years):</label>
+                        <input type="number" id="loanTerm" placeholder="Loan Term" required>
+                    </div>
+                </div>      
+                <div class="row" id="calculateButton">
+                    <div class="col-md-12">
+                        <button type="button" onclick="calculateMortgage()">Calculate</button>
+                    </div>
+                </div>
+                <div id="monthlyPaymentResult"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="container" id="footerContainer">
+        <footer class="container-fluid">
+            <div class="row justify-content-center text-center align-items-center">
+                <div class="col-md-4">
+                    Dream2Reality Homes
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Get Support</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <a href="#">Follow Us</a>
+                </div>
+            </div>
+        </footer>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+      <script>
+        function calculateMortgage() {
+            const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+            const interestRate = parseFloat(document.getElementById('interestRate').value) / 100 / 12;
+            const loanTerm = parseFloat(document.getElementById('loanTerm').value) * 12;
+
+            const monthlyPayment = (loanAmount * interestRate) / (1 - Math.pow(1 + interestRate, -loanTerm));
+            document.getElementById('monthlyPaymentResult').innerHTML = "Monthly Payment: $" + monthlyPayment.toFixed(2);
+        }
+    </script>
+</body>
+</html>
